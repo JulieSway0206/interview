@@ -3,7 +3,7 @@
  */
 (function () {
       angular
-          .module('BookAppMaker')
+          .module('GifAppMaker')
           .config(configuration);
       
       function configuration($routeProvider) {

@@ -3,7 +3,7 @@
  */
 (function () {
     angular
-        .module('BookAppMaker')
+        .module('GifAppMaker')
         .controller('gifController', gifController);
 
     function gifController (searchService) {

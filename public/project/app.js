@@ -3,7 +3,7 @@
  */
 (function () {
       angular
-          .module('BookAppMaker', ['ngRoute'])
+          .module('GifAppMaker', ['ngRoute'])
 
 
 })();
