@@ -1,0 +1,105 @@
+
+
+
+
+<link href="../../../../project/css/login-style.css" rel="stylesheet">
+
+
+
+
+
+
+
+
+
+<script>
+    var keys = [
+        "about",
+        "above",
+        "across",
+        "app",
+        "apple",
+        "appreciate",
+        "bad",
+        "ball",
+        "balloon",
+        "bell",
+        "cat"
+
+    ];
+
+
+    var leng= keys.length;
+
+    function autoc(value) {
+        document.getElementById('datalist').innerHTML = '';
+
+
+        for (var i = 0; i<leng; i++) {
+            if(((keys[i].toLowerCase()).indexOf(value.toLowerCase()))>-1)
+            {
+                var node = document.createElement("option");
+                var val = document.createTextNode(keys[i]);
+                node.appendChild(val);
+
+                document.getElementById("datalist").appendChild(node);
+
+            }
+        }
+    }
+
+</script>
+
+<datalist id="datalist">
+
+    <option value="about"></option>
+    <option value="above"></option>
+    <option value="across"></option>
+    <option value="app"></option>
+    <option value="apple"></option>
+    <option value="appreciation"></option>
+    <option value="bad"></option>
+    <option value="ball"></option>
+    <option value="ballon"></option>
+    <option value="bell"></option>
+    <option value="cat"></option>
+
+
+    <!-- This data list will be edited through javascript     -->
+</datalist>
+
+
+
+
+
+
+<div class="container-fluid">
+    <div ng-show="model.message" class="alert alert-info">{{model.message}}</div>
+
+    <div class="login-page">
+        <div class="form">
+            <form class="login-form">
+                <input ng-model="searchterm"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       spellcheck="false"
+                       type="text"
+                       id="searchterm"
+                       name="searchterm"
+                       class="form-control"
+                       placeholder="Search Term" list="datalist"
+                       onkeyup="autoc(this.value)" required/>
+                <div class="alert alert-danger"
+                     ng-show="form.$submitted && form.searchterm.$error.required">
+                    Search term is required
+                </div>
+                <button ng-click="model.searchGIF(searchterm)"
+                type="submit"
+                class="btn btn-warning btn-block">
+                Go
+                </button>
+            </form>
+            <img src={{model.url}} alt="display gif here">
+        </div>
+    </div>
+</div>
